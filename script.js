@@ -10,3 +10,16 @@ nameForm.addEventListener("submit", (event) => {
 
   nameInput.value = "";
 });
+
+let arr = [];
+
+function addItem() {
+  if (localStorage.meuArr) {
+    arr = JSON.parse(localStorage.getItem("meuArr"));
+  }
+
+  let novoItem = document.getElementById("name").value;
+  arr.push(novoItem);
+  document.getElementById("name").value = "";
+  localStorage.meuArr = JSON.stringify(arr);
+}
