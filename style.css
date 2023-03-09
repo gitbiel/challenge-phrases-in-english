@@ -38,6 +38,11 @@
   font-size: x-large;
 }
 
+.phrases {
+  text-decoration: none;
+  color: #000;
+}
+
 .btn-frases {
   height: 50px;
   width: 600px;

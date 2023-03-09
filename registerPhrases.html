@@ -13,24 +13,33 @@
     <form id="name-form">
       <h1 class="title">Cadastre as suas frases preferidas</h1>
 
-      <label for="name" class="label">Frase</label> <br />
+      <label for="name" class="label">Frase</label>
 
       <textarea
-        type="text"
         id="name"
-        name="name"
         class="textarea"
-        placeholder="Bob has a cat "
+        type="text"
+        name="name"
+        placeholder="Bob has a cat"
         cols="30"
         rows="10"
         autofocus
       ></textarea>
 
-      <button onclick="addItem()" class="btn-cadastrar" type="submit" value="Enviar">
+      <button
+        class="btn-cadastrar"
+        type="submit"
+        onclick="addItem()"
+        value="Enviar"
+      >
         Cadastrar
       </button>
     </form>
-    <button class="btn-frases">Ver frases cadastradas</button>
+    <button class="btn-frases" onclick="showItems()">
+      <a class="phrases">Ver frases cadastradas </a>
+    </button>
     <button class="btn-praticar">Praticar no site</button>
+
+    <div id="phrasesStayHere"></div>
   </body>
 </html>
