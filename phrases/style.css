@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.label {
+  margin: 0 535px 10px 0;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textarea {
+  height: 300px;
+  width: 564px;
+  /* margin: 10px 0 20px 350px; */
+  border: solid 2px black;
+  resize: none;
+  outline: red;
+  background-color: #d9d9d9;
+  padding: 15px;
+}
+
+.textarea:focus {
+  border-color: #8000ff;
+}
+
+.registerButton {
+  margin-top: 30px;
+}
+
+
+.registeredPhrases {
+  margin-top: 150px;
+}
+
+.practicePhrases {
+  margin-top: 30px;
+}

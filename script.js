@@ -1,42 +1,40 @@
-const nameForm = document.querySelector("#name-form");
+const form = document.querySelector("#form");
 
-nameForm.addEventListener("submit", (event) => {
-  console.log(event);
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const nameInput = document.querySelector("#name");
+  const phrasesTextarea = document.querySelector("#phrase");
 
-  localStorage.setItem("name", nameInput.value);
+  localStorage.setItem("phrase", phrasesTextarea.value);
 
-  nameInput.value = "";
+  phrasesTextarea.value = "";
 });
 
 let arr = [];
 
-function addItem() {
-  if (localStorage.meuArr) {
-    arr = JSON.parse(localStorage.getItem("meuArr"));
+function newPhrase() {
+  if (localStorage.phraseBank) {
+    arr = JSON.parse(localStorage.getItem("phraseBank"));
   }
 
-  let novoItem = document.getElementById("name").value.toLowerCase();
+  let newItem = document.getElementById("phrase").value.toLowerCase();
 
-  const itemJaExiste = arr.find((item) => item == novoItem);
-  console.log("itemJaExiste", itemJaExiste);
+  const itemAlreadyExists = arr.find((item) => item == newItem);
 
-  if (itemJaExiste) {
+  if (itemAlreadyExists) {
   } else {
-    arr.push(novoItem);
+    arr.push(newItem);
   }
 
-  document.getElementById("name").value = "";
-  localStorage.meuArr = JSON.stringify(arr);
+  document.getElementById("phrase").value = "";
+  localStorage.phraseBank = JSON.stringify(arr);
 }
 
-function showItems() {
+function showPhrases() {
   let resultDIV = document.getElementById("phrasesStayHere");
   resultDIV.innerHTML = "";
-  if (localStorage.meuArr) {
-    arr = JSON.parse(localStorage.getItem("meuArr"));
+  if (localStorage.phraseBank) {
+    arr = JSON.parse(localStorage.getItem("phraseBank"));
   }
 
   for (var i in arr) {
