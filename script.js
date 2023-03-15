@@ -29,17 +29,3 @@ function newPhrase() {
   document.getElementById("phrase").value = "";
   localStorage.phraseBank = JSON.stringify(arr);
 }
-
-function showPhrases() {
-  let resultDIV = document.getElementById("phrasesStayHere");
-  resultDIV.innerHTML = "";
-  if (localStorage.phraseBank) {
-    arr = JSON.parse(localStorage.getItem("phraseBank"));
-  }
-
-  for (var i in arr) {
-    let p = document.createElement("p");
-    p.innerHTML = arr[i];
-    resultDIV.append(p);
-  }
-}

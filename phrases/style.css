@@ -12,6 +12,11 @@ form {
   flex-direction: column;
 }
 
+.titleRegister {
+  width: 400px;
+  font-size: 20px;
+}
+
 .label {
   margin: 0 535px 10px 0;
   font-size: x-large;
@@ -39,7 +44,7 @@ form {
 
 
 .registeredPhrases {
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .practicePhrases {
