@@ -39,6 +39,7 @@ form {
 }
 
 .registerButton {
+  cursor: not-allowed;
   margin-top: 30px;
 }
 
