@@ -18,13 +18,33 @@ function addNewPhrase(newPhrase = '') {
   item.classList.add("paragraph");
   item.innerHTML = `${firstLetter}${restPhrase}`
   phrasesStayHere.append(item);
-}
-showPhrase();
-console.log(arr);
+}       
 
-function randomIntFromInterval(min, max) { // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min)
+function showPhrases() {
+  const phrasesStayHere = document.getElementById("phrasesStayHere");
+  phrasesStayHere.innerHTML = "";
+
+  const listPhrases = localStorage.getItem("phraseBank");
+  console.log('typeof listPhrases =>', typeof listPhrases, listPhrases)
+
+  const listPhrasesParsed = [];
+  if (listPhrases) {
+    // ... espalha o conteudo do array (spread)
+    listPhrasesParsed.push(...JSON.parse(listPhrases));
+
+    if (listPhrasesParsed.length > 3) {
+      // Mostrar aleatório
+      for (let index = 0; index < 3; index++) {
+        const randomPhrase = generateRandomPhrase(listPhrasesParsed)
+        addNewPhrase(randomPhrase)
+      }     
+      
+    } else {
+      for (let i = 0; i < listPhrasesParsed.length; i++) {
+        addNewPhrase(listPhrasesParsed[i]);
+      }
+    }
+  }
 }
 
-const rndInt = randomIntFromInterval(1, 6)
-console.log(rndInt)
+showPhrases();
