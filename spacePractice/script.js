@@ -6,7 +6,18 @@ function generateRandomPhrase(list = []) {
   const max = list.length - 1;
   const index = randomIntFromInterval(0, max);
   return list[index]
-}   
+}
+
+
+function addNewPhrase(newPhrase = '') {
+  // Check if (newPhrase) exists
+  const firstLetter = newPhrase.charAt(0).toUpperCase();
+  const restPhrase = newPhrase.substring(1)
+
+  const item = document.createElement("li");
+  item.classList.add("paragraph");
+  item.innerHTML = `${firstLetter}${restPhrase}`
+  phrasesStayHere.append(item);
 }
 showPhrase();
 console.log(arr);
