@@ -5,7 +5,7 @@ function randomIntFromInterval(min, max) { // min and max included
 function generateRandomPhrase(list = []) {
   const max = list.length - 1;
   const index = randomIntFromInterval(0, max);
-  return list[index]
+  return index;
 }
 
 
