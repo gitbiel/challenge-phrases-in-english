@@ -5,10 +5,10 @@ function randomIntFromInterval(min, max) { // min and max included
 function generateRandomPhrase(list = []) {
   const max = list.length - 1;
   const index = randomIntFromInterval(0, max);
-  return list[index]
+  return index;
 }
 
-
+const phrasesStayHere = document.getElementById("phrasesStayHere");
 function addNewPhrase(newPhrase = '') {
   // Check if (newPhrase) exists
   const firstLetter = newPhrase.charAt(0).toUpperCase();
@@ -18,10 +18,22 @@ function addNewPhrase(newPhrase = '') {
   item.classList.add("paragraph");
   item.innerHTML = `${firstLetter}${restPhrase}`
   phrasesStayHere.append(item);
-}       
+}
+
+function sortPhrases(listPhrases = []) {
+  // lista de frases sorteadas
+  // essa list serve para guardar as frases que vou mostrar na tela
+  const sorted = [];
+  for (let index = 0; index < 3; index++) {
+    const indexSorteado = generateRandomPhrase(listPhrases)
+    const fraseSorteada = listPhrases.splice(indexSorteado, 1);
+    sorted.push(fraseSorteada[0]);
+    console.log({fraseSorteada, size: listPhrases.length })
+  }
+  return sorted
+}
 
 function showPhrases() {
-  const phrasesStayHere = document.getElementById("phrasesStayHere");
   phrasesStayHere.innerHTML = "";
 
   const listPhrases = localStorage.getItem("phraseBank");
@@ -34,9 +46,10 @@ function showPhrases() {
 
     if (listPhrasesParsed.length > 3) {
       // Mostrar aleatório
+      const sorteados = sortPhrases(listPhrasesParsed)
       for (let index = 0; index < 3; index++) {
-        const randomPhrase = generateRandomPhrase(listPhrasesParsed)
-        addNewPhrase(randomPhrase)
+        
+        addNewPhrase(sorteados[index])
       }     
       
     } else {

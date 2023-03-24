@@ -9,4 +9,4 @@ const mockListPhrases = [
   "some people have thin noses, some people have big ones",
   "keep your mouth shut when your elders talk to you",
   "when someone is bald, it looks like the forehead gets bigger"
-]
+];
