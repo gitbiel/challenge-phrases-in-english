@@ -12,7 +12,7 @@
 
 @media (max-width: 414px) {
   .textarea {
-    height: 300px;
+    height: 200px;
     width: 300px;
     outline: #8000ff;
     background-color: #d9d9d9;
@@ -21,10 +21,20 @@
 }
 
 @media (max-width: 414px) {
-  .registerButton,.registeredPhrases, .practicePhrases {
-    height: 50px;
-    width: 335px;
-    font-size: x-large;
-    margin-right: 20px;
+  .registeredPhrases {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .textarea {
+    height: 200px;
+    width: 265px;
+  }
+}
+
+@media (max-width: 375px) {
+  .registeredPhrases {
+    margin-top: 30px;
   }
 }

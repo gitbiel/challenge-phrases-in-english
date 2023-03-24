@@ -21,3 +21,19 @@
   color: #000;
   cursor: pointer;
 }
+
+@media (max-width: 414px) {
+  .btn {
+    height: 50px;
+    width: 335px;
+    font-size: x-large;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .btn {
+    height: 50px;
+    width: 298px;
+  }
+}
