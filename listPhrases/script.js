@@ -1,19 +1,15 @@
-function showPhrase() {
-  const phrasesStayHere = document.getElementById("phrasesStayHere");
-  phrasesStayHere.innerHTML = "";
-  if (localStorage.phraseBank) {
-    arr = JSON.parse(localStorage.getItem("phraseBank"));
+(() => {
+  const phrasesList = document.getElementById("phrasesStayHere");
+  phrasesList.innerHTML = "";
+  const minhasFrases = localStorage.getItem("phraseBank")
+  if (minhasFrases) {
+    const frases = JSON.parse(minhasFrases);
+
+    for (const frase of frases) {
+      const item = document.createElement("li");
+      item.classList.add("paragraph");
+      item.innerHTML = frase;
+      phrasesList.append(item);
+    }
   }
-
-  for (var i in arr) {
-    const item = document.createElement("li");
-    item.classList.add("paragraph");
-    item.innerHTML = arr[i];
-    phrasesStayHere.append(item);
-  }
-}
-showPhrase();
-
-// (function () {
-
-// })()
+})()

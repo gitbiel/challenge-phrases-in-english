@@ -9,35 +9,33 @@ function generateRandomPhrase(list = []) {
 }
 
 const phrasesStayHere = document.getElementById("phrasesStayHere");
-function addNewPhrase(newPhrase = '') {
-  // Check if (newPhrase) exists
-  const firstLetter = newPhrase.charAt(0).toUpperCase();
-  const restPhrase = newPhrase.substring(1)
+function addNewPhrase(newPhrase) {
+  const primeiraLetra = newPhrase.charAt(0).toUpperCase();
+  const restoDaFrase = newPhrase.substring(1)
 
   const item = document.createElement("li");
   item.classList.add("paragraph");
-  item.innerHTML = `${firstLetter}${restPhrase}`
+  item.innerHTML = `${primeiraLetra}${restoDaFrase}`
   phrasesStayHere.append(item);
 }
 
-function sortPhrases(listPhrases = []) {
+function sortearFrases(listPhrases = []) {
   // lista de frases sorteadas
   // essa list serve para guardar as frases que vou mostrar na tela
-  const sorted = [];
+  const listaSorteados = [];
   for (let index = 0; index < 3; index++) {
     const indexSorteado = generateRandomPhrase(listPhrases)
     const fraseSorteada = listPhrases.splice(indexSorteado, 1);
-    sorted.push(fraseSorteada[0]);
+    listaSorteados.push(fraseSorteada[0]);
     console.log({fraseSorteada, size: listPhrases.length })
   }
-  return sorted
+  return listaSorteados
 }
 
 function showPhrases() {
   phrasesStayHere.innerHTML = "";
 
   const listPhrases = localStorage.getItem("phraseBank");
-  console.log('typeof listPhrases =>', typeof listPhrases, listPhrases)
 
   const listPhrasesParsed = [];
   if (listPhrases) {
@@ -46,15 +44,15 @@ function showPhrases() {
 
     if (listPhrasesParsed.length > 3) {
       // Mostrar aleatório
-      const sorteados = sortPhrases(listPhrasesParsed)
+      const sorteados = sortearFrases(listPhrasesParsed)
       for (let index = 0; index < 3; index++) {
         
         addNewPhrase(sorteados[index])
       }     
       
     } else {
-      for (let i = 0; i < listPhrasesParsed.length; i++) {
-        addNewPhrase(listPhrasesParsed[i]);
+      for (const frase of listPhrasesParsed) {
+        addNewPhrase(frase);
       }
     }
   }
