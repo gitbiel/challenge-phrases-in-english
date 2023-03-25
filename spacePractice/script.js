@@ -53,8 +53,8 @@ function showPhrases() {
       }     
       
     } else {
-      for (let i = 0; i < listPhrasesParsed.length; i++) {
-        addNewPhrase(listPhrasesParsed[i]);
+      for (const frase of listPhrasesParsed) {
+        addNewPhrase(frase);
       }
     }
   }
